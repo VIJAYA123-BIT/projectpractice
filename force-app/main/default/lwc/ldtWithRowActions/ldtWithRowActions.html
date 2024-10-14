@@ -1,0 +1,87 @@
+<template>
+    <lightning-card title="Data table with Row Actions">
+            <div class="slds-var-m-around_medium" style="height:300px;">
+                <template if:true={data}>
+                <lightning-datatable key-field="id" data={data} columns={columns} onrowaction={handlerowaction}>
+                </lightning-datatable></template>
+            </div>
+        
+            <!-- <div class="slds-modal__container">
+                <lightning-button-icon icon-name="utility:close" title="Cancel and Close" onclick={closeModalHandler}
+                    class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                    size="large">
+                </lightning-button-icon>
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{header}</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-d-1">
+                    <template lwc:if={isDisplayMode}>
+                        <lightning-record-form record-id={recordInputId} object-api-name="Account" layout-type="Compact"
+                            mode="readonly"></lightning-record-form>
+                    </template>
+                    <template lwc:elseif={isEditMode}>
+                        <lightning-record-form record-id={recordInputId} object-api-name="Account" layout-type="Compact"
+                            mode="edit" onsuccess={successHandler}></lightning-record-form>
+                    </template>
+
+                </div>
+            </div> -->
+             <!-- Spinner -->
+        <div if:true={showLoadingSpinner}>
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </div>
+            
+            <!-- Detail view modal -->
+        <template if:true={bShowModal}>
+            <section role="dialog" tabindex="-1"
+                    aria-labelledby="modal-heading-01"
+                    aria-modal="true"
+                    aria-describedby="modal-content-id-1"
+                    class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- modal header -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse" size="small" ></lightning-icon>
+                    </button>
+                    
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate" if:false={isEditMode}>Record Detail</h2>
+                    <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate" if:true={isEditMode}>Update Record Values</h2>
+                </header>
+                <!-- modal body -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" if:false={isEditMode}>
+                    <dl class="slds-list_horizontal slds-wrap">
+                        <dt class="slds-item_label slds-truncate" title="First Name">Name:</dt>
+                        <dd class="slds-item_detail slds-truncate">{record.Name}</dd>
+                        <dt class="slds-item_label slds-truncate" title="Phone">Phone :</dt>
+                        <dd class="slds-item_detail slds-truncate"><lightning-formatted-phone value={record.Phone} ></lightning-formatted-phone></dd>
+                        <dt class="slds-item_label slds-truncate" title="Email">Industry:</dt>
+                        <dd class="slds-item_detail slds-truncate"><lightning-formatted-email value={record.Industry} ></lightning-formatted-email></dd>
+                    </dl>
+                </div>
+                
+                <!-- showing record edit form -->
+                <div if:true={isEditMode} class="slds-theme_default">
+                    <lightning-record-edit-form layout-type="Full" record-id={currentRecordId} object-api-name="Account" onsubmit={handleSubmit} onsuccess={handleSuccess}>
+                        <lightning-messages></lightning-messages>
+                        <lightning-input-field field-name="Name"></lightning-input-field>
+                        <lightning-input-field field-name="Phone"></lightning-input-field>
+                        <lightning-input-field field-name="Industry"></lightning-input-field><br/>
+                        <div style="text-align:center;">
+                            <lightning-button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Update Record"></lightning-button>
+                        </div>
+                    </lightning-record-edit-form><br/>
+                    <div></div>
+                </div>
+
+                <!-- modal footer start-->
+                <footer class="slds-modal__footer" if:false={isEditMode}>
+                    <lightning-button variant="brand" label="Close" title="Close" onclick={closeModal}></lightning-button>
+                </footer>
+            </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+    </lightning-card>
+
+</template>

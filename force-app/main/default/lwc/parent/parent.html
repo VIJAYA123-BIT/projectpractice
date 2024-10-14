@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="parent communication to child">
+        <!-- <lightning-input type="text" value={inputMessage} onchange={handlechange} label="message"></lightning-input>
+    <c-child message={inputMessage}></c-child> -->
+    <div>value recieved from the child is {valuemessage}</div>
+    <c-child onsucess={valuerecieved}></c-child>
+
+    </lightning-card>
+</template>

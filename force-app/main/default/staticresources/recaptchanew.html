@@ -1,0 +1,86 @@
+<!-- <html>
+
+  <head>
+
+    <title>reCAPTCHA demo: Simple page</title>
+
+     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  </head>
+
+  <body>
+
+    <form action="?" onsubmit="return validateForm()" method="POST">
+
+      <div class="g-recaptcha" data-sitekey="6Le_hvUpAAAAAOgq9RR3-qe69nZ142diguiu6Vol"></div>
+
+      <br/>
+
+      <input type="submit" value="Submit">
+
+    </form>
+
+ 
+
+    <script type="text/javascript">
+
+        function validateForm(){
+
+ 
+
+            if(grecaptcha.getResponse().length == 0){
+
+                alert('Please click the reCAPTCHA checkbox');
+
+                parent.postMessage("captcha failed", location.origin);
+
+                return false;
+
+            }
+
+            parent.postMessage("captcha success", location.origin);
+
+            return true;
+
+        }
+
+    </script>
+
+  </body>
+
+</html> -->
+
+
+<html>
+  <head>
+    <title>reCAPTCHA demo: Simple page</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <style>
+   .g-recaptcha  {
+      width: 100%;
+      border: none !important; /* Ensure iframe border is removed */
+      background: none !important; /* Ensure iframe background is removed */
+    }
+  </style>
+</head>
+  <body>
+    <form action="?" onsubmit="return validateForm()" method="POST">
+      <!-- <div class="recaptcha-container"> -->
+      <div class="g-recaptcha" data-sitekey="6Le_hvUpAAAAAOgq9RR3-qe69nZ142diguiu6VoI"></div>
+    </div>
+      <br/>
+      <!-- <input type="submit" value="Submit"> -->
+    </form>
+    <script type="text/javascript">
+      function validateForm() {
+        if (grecaptcha.getResponse().length == 0) {
+          alert('Please click the reCAPTCHA checkbox');
+          parent.postMessage("captcha failed", location.origin);
+          return false;
+        }
+        parent.postMessage("captcha success", location.origin);
+        return true;
+      }
+    </script>
+  </body>
+</html>

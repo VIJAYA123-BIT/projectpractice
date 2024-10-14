@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="recaptcha">
+        <div class="slds-var-m-around_medium">
+        <lightning-input type="text" name="userName" label="Name" value={Enteredname} onchange={InputHandler}></lightning-input>
+        <lightning-input type="Email" name="userEmail" label="Email" value={Enteredemail} onchange={InputHandler} ></lightning-input>
+        <lightning-input type="number" name="userNumber" label="Phone" value={Enteredphone} onchange={InputHandler} ></lightning-input>
+        <br>
+        <!-- <iframe src={navigateTo} name="captchaFrame" onload={captchaLoaded} style="width: 100%; height: 300px;"></iframe> -->
+        <iframe src={navigateTo} name="captchaFrame" onload={captchaLoaded} style="width: 100%;height: 100px; border: none; background: none;"></iframe> <br>
+        <lightning-button variant="brand" label="sign up" onclick={signUpHandler}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

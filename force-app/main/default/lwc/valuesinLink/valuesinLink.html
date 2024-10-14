@@ -1,0 +1,23 @@
+<template>
+    <lightning-combobox 
+            label="Accounts"
+            placeholder="Select the Account"
+            options={dataAccountrecord}
+            value={selectedacc}
+            onchange={ContactHandler}>
+    </lightning-combobox>
+    <lightning-combobox 
+            label="Contacts - Relate to Accounts"
+            placeholder="Select the Contact"
+            options={dataContactrecord}
+            value={selectedacc}
+            onchange={ContactHandler}>
+    </lightning-combobox>
+    <lightning-combobox 
+    label="Relate to Accounts"
+    placeholder="Select the Account"
+    options={dataAccountrecord}
+    value={selectedacc}
+    onchange={ContactHandler}>
+</lightning-combobox>
+</template>

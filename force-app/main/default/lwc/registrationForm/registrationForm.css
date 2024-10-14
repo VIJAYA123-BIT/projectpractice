@@ -1,0 +1,12 @@
+.iconMargin{
+    margin-top: 2px!important;
+}
+.match-message {
+    color: green;
+    font-weight: bold;
+}
+
+.mismatch-message {
+    color: red;
+    font-weight: bold;
+}

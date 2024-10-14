@@ -1,0 +1,55 @@
+<template>
+    <template if:true={RegistrationFormflag}>
+    <div class="slds-grid slds-grid_align-center slds-grid_vertical-align-center slds-size_1-of-1 ">
+    <lightning-card title="Registration form" class="slds-box slds-theme_default" style="width: 30%; max-width: 600px;" >
+        <div class="slds-var-m-around_medium">
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left iconMargin">
+                <lightning-icon size="x-small" class="iconMargin slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default" icon-name="utility:user"></lightning-icon>
+                <lightning-input type="text" label="firstName" name="first" value={firstName} onchange={InputHandler}> </lightning-input>
+            </div>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+                <lightning-icon size="x-small" class="iconMargin slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default" icon-name="utility:company"></lightning-icon>
+                <lightning-input type="text" label="Company" name="Company" value={CompanyName} onchange={InputHandler}></lightning-input>
+            </div>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+                <lightning-icon size="x-small" class="iconMargin slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default" icon-name="utility:email"></lightning-icon>
+                <lightning-input type="Email" label="Email" name="Email" value={EmailName} onchange={InputHandler}></lightning-input>
+            </div>
+           
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+                <lightning-icon size="x-small" class="iconMargin slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default" icon-name="utility:unlock"></lightning-icon>
+                <lightning-input type="password"   label="Password" name="PasswordEntered" value={PasswordEntered} onchange={handlePasswordChange}> > </lightning-input>
+            </div>
+            <!-- <div class="error">{passwordError}</div> -->
+            <template if:true={passwordError}>
+                <p class={passwordErrorClass}>{passwordError}</p>
+            </template>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+                <lightning-icon size="x-small" class="iconMargin slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default" icon-name="utility:lock"></lightning-icon>
+                <lightning-input type="password"  label="Confirm Password" name="ConfirmPassword" value={ConfirmPassword}  onchange={handleConfirmPasswordChange}> </lightning-input>
+
+            </div>
+            <template if:true={confirmPasswordError}>
+                <p class={confirmPasswordErrorClass}>{confirmPasswordError}</p>
+            </template>
+             <br>
+            <div class="recaptcha"></div>
+
+            <lightning-button variant="brand" label="Sign Up" onclick={signUpHandler} ></lightning-button>
+            
+        </div>
+    </lightning-card>
+</div>
+</template>
+<template if:true={Thankyouflag}>
+   <div class="slds-grid slds-grid_align-center slds-grid_vertical-align-center slds-size_1-of-1  ">
+    <lightning-card>
+       <div class="slds-var-m-around_medium">
+    <p><strong>Thankyou for sign up, You are going to the required page</strong></p><br>
+    <lightning-button onclick={TargetHandler} variant="brand" label="Target"></lightning-button>
+</div> 
+    </lightning-card>
+</div>
+</template>
+    
+</template>

@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="printing numbers using for loop">
+        <div  class="slds-var-m-around_medium">
+
+        
+        <template for:each={numbers} for:item="inn" for:index="index">
+            <div key={inn}> {inn}</div>
+        </template>
+        <ul style="display: flex; gap: 10px;">
+            <li for:each={numbers} for:item="inn" for:index="index" key={inn}>
+                {inn}
+            </li>
+        </ul>
+        <p>Adding records to the salesforce org</p>
+        <Lightning-input name="EnteredName" type="text" value={UserenteredName} label="Name" onchange={NameHandler}></Lightning-input>
+        <Lightning-input  name="UserEnteredIndustry" type="text" value={UserIndustry} label="Industry" onchange={NameHandler}></Lightning-input>
+        <lightning-button variant="brand" label="Add" onclick={Addhandler}></lightning-button>
+        <p>The no.of account records</p> 
+        <lightning-input type="text" onchange={inputHandler}
+            value={userEnteredNumber}></lightning-input>
+            <lightning-button variant="brand" label="submit" onclick={submithandler}></lightning-button>
+            <template  for:each={accountRecords} for:item="account">
+                <div  key={account.Id}>
+                    <p>Name: {account.Name}</p>
+                    <p>Industry: {account.Industry}</p>
+                    <p>----------------------------------</p>
+                </div>
+            </template>
+            
+        </div>
+        </lightning-card>
+</template>
