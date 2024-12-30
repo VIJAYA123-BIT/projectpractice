@@ -1,0 +1,27 @@
+<template>
+    
+    <lightning-card title="Data binding">
+        <div class="slds-var-m-around_medium">
+        Hey there {greetings}
+        <p>The below lines are using getter methods of data binding</p>
+        <lightning-input  name="firstName" label="firstName" onchange={handleChange}></lightning-input>
+        <lightning-input  name="lastName" label="lastName" onchange={handleChange}></lightning-input>
+       <p> The complete name is using getter method = {Fullname}</p>
+       <br>
+       <P>It is dynamically written : <b>{myValue}</b> By changing the below input value this value can be changed</P>
+       <lightning-input type="text" label="Dynamical value " value={myValue} onchange={changeHandler}></lightning-input>
+       <br>
+    <p><b>Conditional rendering elements </b></p>
+    <lightning-input type="checkbox" label="Click me" name="ClickMe" onchange={handleChange}></lightning-input>
+    <template if:true={showMe}>
+        <p><b>Hey u r the beautiful creature in this world</b></p>
+    </template>
+    <template if:false={showMe}>
+        <p><b>Hey i want to show something , click the checkbox</b></p>
+
+    </template>
+    
+</div>
+    </lightning-card>
+
+</template>
