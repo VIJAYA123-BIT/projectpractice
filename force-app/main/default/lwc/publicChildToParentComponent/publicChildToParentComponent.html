@@ -1,0 +1,14 @@
+<template>
+    <template if:true={isFirstInstance}>
+        <p>Hello parent, the feedback is  : {letter} , thank you it will give me more motivation.</p>
+    </template>
+    <template if:true={isSecondInstance}>
+        <p>the child value from the parent is  : {textvalue}</p>
+    </template>
+    <template if:true={isThirdInstance}>
+        <div class="slds-var-m-around_medium">
+            <lightning-input type="text" onchange={inputHandler} value={userinput} label="Enter task"></lightning-input>
+            <lightning-button label="Add Task" variant="brand" onclick={submitHandler}></lightning-button>    
+        </div>
+    </template>
+</template>

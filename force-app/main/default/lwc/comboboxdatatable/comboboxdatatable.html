@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="combobox with data table">
+        <div class="slds-var-m-around_medium">
+            <lightning-combobox label="Accounts" placeholder="Select Accounts" value={selectedValue} options={accountOptions} onchange={comboHandler}></lightning-combobox>
+            <p>The selected value is {selectedValue}</p> <br>
+            <template if:true={showAccrelatedContacts}>
+                <lightning-button label="Show Contacts" variant="brand" onclick={submitHandler}></lightning-button>
+                <template if:true={showContacts}>
+                    <lightning-card title="the selected account related contacts">
+                        <div class="slds-var-m-around_medium">
+                                <template for:each={ArrayContacts} for:item="conArray">
+                                    <li key={conArray}>{conArray.LastName}</li>
+                                </template>
+                            <lightning-datatable   key-field="Id"   data={ArrayContacts}   columns={columns} onsave={handleSave} draft-values={draftValues}></lightning-datatable>
+                        </div>
+                    </lightning-card>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

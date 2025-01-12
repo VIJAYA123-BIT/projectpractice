@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Again came with the communications parent and child component">
+        <div class="slds-var-m-around_medium">
+            <p>Hello Child , Here is your feedback for your hardwork</p>
+            <c-public-child-to-parent-component letter ={childword} is-first-instance=true></c-public-child-to-parent-component>
+        </div>
+        <div class="slds-p-around_large">
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="5">
+                <lightning-input label="Parent-- enter the input" type="text" onchange={inputHandler} value={input1}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="2" class="slds-var-m-top_large slds-var-m-left_small">
+                <lightning-button variant="brand" label="submit" onclick={submitHandler}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+        <c-public-child-to-parent-component textvalue ={childword1} is-second-instance=true></c-public-child-to-parent-component>
+    </div>
+    </lightning-card>
+    <lightning-card title="child to Parent Communication" variant="narrow" icon-name="standard:events">
+        <div class="slds-p-around_small">
+            <div class="slds-var-m-around_medium"><b>To do list (parent lwc component)</b></div>
+            <ul class="slds-has-dividers_around-space">
+                <template for:each={tasklist} for:item="task">
+                    <li class="slds-item" key={task}>{task}</li>
+                </template>
+            </ul>
+            <c-public-child-to-parent-component onaddtask={handleAddedTask} is-third-instance=true></c-public-child-to-parent-component>
+            <lightning-input label="Parent-- enter the input for LMS" type="text" onchange={SecondinputHandler} value={input2}></lightning-input>
+            <lightning-button variant="brand" label="submit" onclick={secondsubmitHandler}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

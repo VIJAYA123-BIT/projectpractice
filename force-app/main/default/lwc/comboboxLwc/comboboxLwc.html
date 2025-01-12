@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="combo box lwc">
+        <div class="slds-var-m-around_medium">
+            <lightning-combobox label="accounts" placeholder="Select Account" value={selectedValue} options={AccountOptions} onchange={HandleChange}></lightning-combobox>
+            <p>The selected value is : {selectedValue}</p>
+        </div>
+
+    </lightning-card>
+    
+</template>

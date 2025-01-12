@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="imperative call ">
+        <div class="slds-var-m-around_medium">
+            <p> To see the account names</p>
+            <lightning-button variant="brand" label="submit" onclick={submitHandler}></lightning-button>
+            <template if:true={firstArray}>
+                <ul>
+                    <template for:each={arrayData} for:item="arrayItem">
+                        <li key={arrayItem}> {arrayItem.Name} </li>
+                    </template>
+                </ul>
+            </template>
+        </div>
+    </lightning-card>
+</template>

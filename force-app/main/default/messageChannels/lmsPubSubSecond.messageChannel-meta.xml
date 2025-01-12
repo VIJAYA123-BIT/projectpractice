@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
-   
     <isExposed>true</isExposed>
-    <masterLabel>lmsPubSub</masterLabel>
+    <masterLabel>lmsPubSubSecond</masterLabel>
     <description>This is a lightning message Channel</description>
-    <lightningMessageFields>
-        <fieldName>name</fieldName>
-        <description>This is the name</description>
-    </lightningMessageFields>
     <lightningMessageFields>
         <fieldName>userName</fieldName>
         <description>This is the name</description>

@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="conditional carding..">
+        <div class="slds-var-m-around_medium">
+            <lightning-button variant="brand" label={showlabel} onclick={submitHandler}></lightning-button>
+        <template if:true={showcard}>
+            <lightning-card>
+                <p><b>helloo world</b></p>
+            </lightning-card>
+        </template>
+        <template if:false={showcard}>
+            <lightning-card>
+                <p><b>helloo vijaya</b></p>
+            </lightning-card>
+        </template>
+        </div>
+    </lightning-card>
+</template>

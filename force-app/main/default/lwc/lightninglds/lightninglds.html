@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="lds - record view form">
+        <div class="slds-var-m-around_medium">
+            <lightning-record-view-form record-id={recordId} object-api-name={objectApiName} density="compact" >
+                <lightning-output-field field-name={Name_field}></lightning-output-field>
+                <lightning-output-field field-name={Type_field}></lightning-output-field>
+                <lightning-output-field field-name={industry_field}></lightning-output-field>
+            </lightning-record-view-form>
+        </div>
+    </lightning-card>
+    <lightning-card title="lds- record edit form" >
+        <div class="slds-var-m-around_medium">
+            <p>the object is {secondobjectApiName}</p>
+            <lightning-record-edit-form record-id={secondrecordId} object-api-name={secondobjectApiName}>
+                <lightning-input-field field-name={Second_LastName_field}></lightning-input-field>
+                <lightning-input-field field-name={Second_Email_field}></lightning-input-field>
+                <lightning-input-field field-name={Second_Description_field}></lightning-input-field>
+                <lightning-button label="Save" type="submit" variant="brand"></lightning-button>
+            </lightning-record-edit-form>
+        </div>
+
+    </lightning-card>
+</template>
